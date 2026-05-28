@@ -877,14 +877,13 @@ body {
 .ccard-points li i {
     color: var(--blue);
     font-size: 6px;
-    margin-top: 5px;
+    margin-top: 6px;
     flex-shrink: 0;
 }
 
 .ccard-points li strong {
     color: var(--ink);
     font-weight: 600;
-    min-width: 80px;
 }
 
 /* Closing sign-off banner */
