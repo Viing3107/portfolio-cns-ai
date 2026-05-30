@@ -4,6 +4,39 @@ window.addEventListener("scroll", () => {
     navbar.classList.toggle("scrolled", window.scrollY > 60);
 });
 
+// Hamburger menu
+const hamburger = document.getElementById("hamburger");
+const navLinks = document.getElementById("navLinks");
+const navOverlay = document.getElementById("navOverlay");
+
+function toggleMenu() {
+    const isOpen = hamburger.classList.toggle("open");
+    navLinks.classList.toggle("open");
+    navOverlay.classList.toggle("open");
+    document.body.style.overflow = isOpen ? "hidden" : "";
+}
+
+hamburger.addEventListener("click", toggleMenu);
+
+// Close menu on link click
+navLinks.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+        if (navLinks.classList.contains("open")) {
+            toggleMenu();
+        }
+    });
+});
+
+// Close menu on overlay click
+navOverlay.addEventListener("click", toggleMenu);
+
+// Close menu on Escape key
+document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && navLinks.classList.contains("open")) {
+        toggleMenu();
+    }
+});
+
 // Custom cursor
 const cursor = document.getElementById("cursor");
 const ring = document.getElementById("cursorRing");
